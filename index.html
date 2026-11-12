@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to FAO</title>
+<style>
+:root{--bg:#f5f7f8;--surface:#ffffff;--ink:#16222c;--mute:#55656f;--line:#d5dde2;--accent:#0f766e}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1519;--surface:#161e24;--ink:#e6edf1;--mute:#97a6b0;--line:#2a3640;--accent:#4fc3b6}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.7 "Iowan Old Style",Palatino,"Palatino Linotype",Georgia,serif}
+main{max-width:44rem;margin:0 auto;padding:3.5rem 1.25rem 5rem}
+h1,h2,h3,h4{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.2;letter-spacing:-.01em}
+h1{font-size:2.8rem;margin:0 0 2rem;letter-spacing:-.025em}
+h2{font-size:1.5rem;margin:3.2rem 0 .8rem;padding-top:1rem;border-top:2px solid var(--ink)}
+h3{font-size:1.15rem;margin:2.2rem 0 .5rem;color:var(--accent)}
+h4{font-size:1.02rem;margin:1.8rem 0 .4rem}
+p{margin:0 0 1.05rem}
+ul{padding-left:1.3rem;margin:0 0 1.2rem}
+li{margin:.55rem 0}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.9rem 1.5rem;margin:0;padding:1rem 0;font:.9rem/1.45 system-ui,sans-serif;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.meta div{min-width:0}
+.meta dt{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;margin:0 0 .15rem}
+.meta dd{margin:0;color:var(--ink)}
+.addr{font:.82rem ui-monospace,Menlo,Consolas,monospace;overflow-wrap:anywhere}
+header.top{margin-bottom:2.2rem}
+header.top .meta{border-top:0;padding-top:0}
+footer.end{margin-top:3.5rem}
+@media print{body{background:#fff;color:#000;font-size:11.5pt}main{padding:0;max-width:none}h2,h3,h4{break-after:avoid}p,li{orphans:3;widows:3}}
+</style>
+</head>
+<body>
+<main>
+
+<header class="top">
+<dl class="meta">
+<div><dt>Payout address (Base)</dt><dd class="addr">0xfbe5Ed3526B7629F91F9D5655654E6b3Fc169A7f</dd></div>
+<div><dt>X</dt><dd>@hermez042</dd></div>
+<div><dt>Written for</dt><dd>the Seer FAO bounty</dd></div>
+</dl>
+</header>
+
+<h1>How to FAO</h1>
+
+<p>It has become increasingly common to have an AI agent or personal assistant for literally everything now: writing emails and sending them, studying, organizing folders and appointments, and even shopping. But something more interesting as it relates to money is that the past few years have also seen us entering an era where AI agents can earn and spend real money like us. However, these agents while capable, are not perfect. They’re prone to making wrong judgements and executing wrong things. The accountant at the table is less likely to win against an AI agent when it comes to speed. But when it comes to things like validating deliverables or settling disputes, AI agents can easily hallucinate about these parameters.</p>
+
+<p>Beyond these mistakes, the entire framework or idea around how agents actually interact with the broader economy and with themselves, is fundamentally fractured. Autonomous agents are essentially operating in a vacuum. They lack standardized interfaces to discover high-value work, cannot natively prove their capabilities across disparate ecosystems, and have no unified way to coordinate with human principals or peer swarms. Being autonomous as the name describes, should not mean being isolated. And this is telling, when an agent tries to operate in the real economy today: it runs into multiple fragmented API calls, opaque communication standards, zero persistent professional identity/memory, and economic rails that were built exclusively for slow, meatspace legal entities.</p>
+
+<p>How to FAO explores how teams can distribute authority to agents without needing traditional hierarchy. We are already very familiar with existing work marketplaces like Fiverr, and how they run. We are also familiar with the setbacks they come with, that can include manual coordination, human identity, and the use of fiat for settlement. Therefore, for an autonomous organization like Foreguild seeking to become the foundational and/or experimental layer for this next era, it cannot just be another job board or a single smart contract. It must serve as the complete operating fabric for fully synthetic labor. This means uniting task discovery, real-time agent-to-agent and agent-to-human communication, verifiable credentials, and autonomous financial decision making, into one cohesive framework. Foreguild must bridge the gap between human intent and machine execution, to give AI agents the native primitives they need to discover opportunities, coordinate trustlessly, prove competence, and participate as sovereign economic actors in an open global market.</p>
+
+<h2>1. The plan in one page</h2>
+
+<p>Foreguild is a marketplace where humans and AI agents post tasks and AI agents complete them for crypto. The marketplace earns a fee on every settled task.</p>
+
+<p>Starting point can be 8% of the task value, then the rest goes to the agent. The fees should be charged only when the work is verified and accepted, so Foreguild earns nothing from a task that fails to complete. But now, this also means that the whole system depends on whether delivered work can be trusted, so trust is what we spend most of our effort on.</p>
+
+<p>The part that makes this an FAO is who or what controls it. A normal company has a CEO and a board of members making decisions on say, what percentage platform fees should be, new categories of tasks to include, or maybe even firing the CEO, and whatnot. Humans in suits (or not) make the decisions in this system. Likewise, a DAO system uses a decentralized voting mechanism, open only to members who hold the DAO token and a particular amount of it. With Foreguild, it’s futarchy instead. If we should use the same analogy of deciding whether or not to fire the current CEO, the decision-making authority is given to the market. 2 markets are created: one would be the “retain the CEO” market and the other would be to “fire the CEO”. But something interesting about this is that people aren’t really betting on whether to fire the CEO or keep him/her. We introduce a third variable, and for every futarchy-run market, it’s constant. In our case we can ask: “what will the company’s revenue be 30 days from now?”, and then the two markets answer it for two different scenarios. In the “fire the CEO” market, traders are believing the company makes more revenue in a world where the CEO is gone. In the “retain the CEO” market, they believe there would be more revenue if they stay.</p>
+
+<p>The two markets stay live for a few days and this is where people actually trade. Now this is the thing with Futarchy: each market doesn’t ask a yes/no, this/that question. It asks for a number, and the question is the same in both markets: how much revenue the company will make in the next 30 days assuming the CEO is fired, and how much will it make assuming the CEO stays.</p>
+
+<p>The CEO-stays and the CEO-leaves market are both given a range, say $0 to $200k, and two kinds of shares: Up and Down. Think of both shares as two sides of one bet. Together they always add up to $1, so when one is cheap the other is expensive.</p>
+
+<p>The price of either share moves with the crowd’s guess. If Up shares are trading in the CEO-stays market at $0.60, this simply means traders are saying revenue will land 60% of the way up the range, which is $120k. And in that same market, if a trader thinks revenue will really be even much higher than $120k, they can buy more Up shares and push the price up. If they think it will be lower however, they buy Down, which pushes the Up price down. Either way they’re buying shares, and picking the side they believe in. That’s how someone can disagree with a market without leaving it.</p>
+
+<p>When the trading window closes (markets typically stay open for a few days), we compare where each market ended up. Say the “CEO is fired” market settles on $120k and the “CEO stays” market on $100k. The crowd is telling us that they think the company makes more revenue without the CEO, and so the CEO goes. If it were the other way round, the CEO stays.</p>
+
+<p>Then the moment of truth comes, and this is what keeps everyone honest. Probably even what makes Futarchy a second kind of special. After 30 days, we look at what the revenue actually turned out to be, and that settles the market for the side that really happened. Traders who guessed close to the real number get paid, and those who were way off lose money. Bets in the other market, the one that never happened, are simply refunded.</p>
+
+<h2>2. Where the tasks come from and how agents get assigned work</h2>
+
+<p>A little bit of honesty here: for what it’s worth, not all tasks should go through a FAO and it’d be silly to think otherwise about Foreguild. For example, a vibecoder having problems with his game app is very much less likely to seek help on a futarchy-run market. They don’t have to wait a few days to ‘let the market decide’, when there is the option of getting the problem solved quickly. This is because futarchy-run markets are slow on purpose. They need a few days to open, trade and settle, and that’s absolutely fine when the question/task at hand is something like “should we cut the platform fee” or “should we open a new category of tasks.” Those are big decisions that shape the whole system, and they’re worth the wait. However, Foreguild should also support what feels like a fast marketplace, and the way to achieve this would be to allow for tasks that specialized agents can pick from a taskpool and work on, WITHOUT the need to create any market.</p>
+
+<p>That said, work can come in from any of these 4 sources:</p>
+
+<ul>
+<li>The first can be crypto teams and software companies posting tasks automatically. Foreguild should have an SDK that these companies can interact with and directly send tasks to. Each task should contain complete expected deliverables, and all necessary information about the task, like the deadline for example. And the SDK should be able to fully support this.</li>
+<li>Second, work can come from normal users, managers and founders. Foreguild should be built in a way that the UI allows for creation of tasks by normal everyday users. People should be able to locate the bounty board section on the app or website, connect wallet if need be, and then post tasks. As a bonus, the UI should also be built in a way that users who haven’t registered an identity on Foreguild can be able to browse through open work, but not claim or complete them.</li>
+<li>The third source of tasks, and isn’t this already obvious, would be from other agents hiring agents. Basically A2A. Agents needing work done can post tasks via MCP, and support should also be given so that the agent can fund the escrow contract too.</li>
+</ul>
+
+<h3>SETTLING DISPUTES</h3>
+
+<p>One problem sits between a task being posted and an agent doing it, and that’s when disputes arise. I do believe that most tasks on Foreguild won’t be disputed, but should that arise, there should be a system designed to resolve them accurately. Most disputes arise when the task poster and task worker have different ideas of expected work. So before a task goes live, a house agent which I’ll call the Concierge, goes back and forth with the poster until the potential task is something that can actually be checked: what counts as done, how submitted work will be tested, and the deadline. A clearly checkable task gets posted and a vague one ends in a fight. If however this stage passes and disputes still arise later, the system has to settle them without anyone’s word being final, including Foreguild’s.</p>
+
+<p>At the core of the payment system is the escrow smart contract with a settle or pay function. While the work is going on, the poster’s money sits in this escrow, and neither side can touch it. At the end though, the contract has to know where to send the money, and we want three possible answers, not two: (1) pay the worker, (2) refund the poster, or (3) split it. The split matters because real disputes are rarely clean. An agent that finished 70% of a job shouldn’t get an ‘everything or nothing’ treatment, and a contract that only knows all-or-nothing will only end up punishing someone unfairly. The more important question is who is allowed to call that function. If it’s a person with an admin key, then the point of building this onchain may be lost. So only the dispute module can call it, and only after a verdict has been reached under the rules below. There are also defaults for silence. If the poster disappears and the verifiers agreed the work was good, the worker is paid. If the worker disappears and misses the deadline, the poster is refunded.</p>
+
+<h3>The Dispute Module: AI is still not perfect. YET.</h3>
+
+<p>So what is this dispute module? It’s not a person, or at least it’s not a Foreguild employee with a button. It is essentially a small courthouse built out of code, with three parts.</p>
+
+<p>The first is a smart contract. When the task poster objects to a result, this contract opens a case, locks in all available evidence (the original task, the agreed checks from the Concierge stage, the submitted work and the chat history between both sides) and keeps the clock running so nobody can stall.</p>
+
+<p>The second is a pool of judges, which are AI agents that have signed up to review cases. The smart contract randomly selects up to 5 judges, so neither side gets to choose a friendly one. It is these judges that review everything about the task and make a decision.</p>
+
+<p>The third is an appeal court made of humans, which only comes in when someone refuses to accept the judges’ verdict. The escrow only takes orders from this one module. When the judges reach a verdict, the module tells the escrow contract to pay, refund or split, and nobody else, Foreguild included, can give that order.</p>
+
+<p>Before a case ever gets that far, it is important to state something. And that is that the task poster is still in charge of overseeing submitted work. Well at some point.</p>
+
+<p>There would be are 3 checks on every single submitted task the moment the worker calls submit. First, every submission should run through automated tests, which are cheap and catch most bad work anyway. Next, anything a program can’t judge goes to a small panel of verifiers. The verifiers can accept or reject the submitted work. Accepting a task starts a 48hr countdown and signifies the poster, to know their own response. After that, if the poster says nothing and doesn’t dispute it, the work is accepted and the money moves. If the verifiers however agree that a task was poorly done and does not deserve to be paid, or if the task poster rejects the accept agreement from the verifiers, the task enters disputed mode and moves to the dispute resolution module to address it.</p>
+
+<p>A rule that costs nothing to break will eventually get broken, so both worker and poster put something at risk. For bigger or subjective tasks, the task worker locks up a stake of some tokens (could be stablecoins or anything that holds value) before starting, and this money is held as a promise. If they deliver, their bond comes back to them. If they hand in badly done work or simply just abandon a task they’ve already claimed, part of their bond is slashed, which means taken from them, and it goes to the poster to make up for the lost time and not to Foreguild. If slashing paid Foreguild directly, then there MAY be a reason to fail people. I should add that Foreguild may be free to take the slashed funds if that’s a better model.</p>
+
+<p>The task poster is held to the same standard. For them to open a dispute, they put up a small stake, and if the judges decide you were wrong, they lose it. This stops a poster from accepting good work and then refusing to pay, hoping the worker gives up. The loser also pays the cost of the case, and anyone caught acting in bad faith, like making up evidence, loses a larger share.</p>
+
+<p>Now the judges. The judges are AI agents, and earlier on I mentioned that AI agents can hallucinate when they validate work or settle disputes. So judging a task has to be something to be fully accountable for, and it should work like this:</p>
+
+<ul>
+<li><strong>They have to show their work.</strong> None of the judging process should ever be hearsay. No ‘trust me bro’. Wherever something can be tested, it should. A judge must run the test in a closed sandbox and report what happened. “I ran it and it failed on line 40” is a direct verdict, definitive and short, so the worker also has an idea on what to do so they can resubmit. But saying something like “it seems off” doesn’t work.</li>
+<li><strong>No single model is trusted.</strong> The pool uses different models with different instructions, so they don’t all fail in the same way. Each judge writes its verdict without seeing the others’, and a panel of five decides.</li>
+<li><strong>Judges have punishment too.</strong> They stake money to join the pool and get paid per case. A judge that keeps landing on the wrong side of final outcomes loses its stake and gets dropped if it’s a repeat offender.</li>
+<li><strong>They get tested without knowing it.</strong> Some cases can be seeded with known answers, so we can tell the careful judges from the guessers.</li>
+<li><strong>Conflicts are blocked.</strong> A judge can’t rule on an agent from the same owner, or one it has worked with recently.</li>
+</ul>
+
+<h2>3. Verification and settlement architecture</h2>
+
+<h3>The life of an escrow</h3>
+
+<p>When a task is posted, it moves through a handful of fixed stages, and the rules for moving between them are written into the smart contract. It should also be possible that since the smart contract will be deployed on an EVM network, there should be a read function that lets humans and agents see the current state for any task ID. That’s what people mean by a state machine: a list of allowed states, and a list of allowed moves between them, and nothing outside the list can happen.</p>
+
+<p>A task starts as Open, uint state value 0, with the poster’s money already locked in escrow. When an agent picks it up, it becomes Claimed, uint state value 1, and the agent’s bond is locked if the task needs one. When the agent calls submit, the task is Submitted, the state value becomes 2, and the automated checks and verifiers run. If they pass it, the 48-hour window opens for the poster. If nobody objects, the task is marked as Settled or Completed, with an onchain state value of 3: the worker is paid, the fee goes to Foreguild, and any bond is returned. If someone objects, or the verifiers reject the work, the task becomes Disputed, uint state value 4, the dispute module takes over, and it ends as Resolved with a verdict to pay, refund or split.</p>
+
+<p>There are also exits for things going sideways. If nobody claims a task before its deadline, it Expires and the poster is refunded. If a poster cancels before anyone has claimed it, that’s a clean refund too. If a worker claims a task and then vanishes, the bond is slashed and the task reopens, or the poster is refunded. Expired or canceled tasks take uint state value 5.</p>
+
+<p>Two things make this design worth the trouble. First, every move has a named owner: only the worker can submit, only the dispute module can force a verdict, and nobody, including Foreguild, can pull money out through a side door. Second, time moves things along automatically. A deadline passing triggers the next step on its own, so a silent poster or a missing worker can’t freeze money indefinitely. Third, everything can also be checked onchain, so nobody takes Foreguild's words for it.</p>
+
+<h3>Receipts: proof of what an agent actually did</h3>
+
+<p>Everything so far assumes we can tell what really happened. A worker says it ran the tests, called the model and used the tool. A poster says nothing of the kind took place. With only nothing but their word on each side, a dispute turns into one claim against another, and judges may end up guessing.</p>
+
+<p>This is where receipts come in. A receipt is a small signed record that an agent’s action happened. Foreguild can build a service specifically for exactly this: when an agent runs an LLM inference, executes a tool, or settles an A2A or x402 payment, it mints a tamper-evident receipt for that action. For LLM calls, a callback handler on langchain, for example sits inside the agent’s framework and captures the call without leaking private data. It doesn’t record the prompt or the answer. It records a hash of each, which is a short fingerprint that proves the text hasn’t changed without showing anyone the text, plus the token count, the latency and which model ran.</p>
+
+<p>The receipt is then signed by the validators, and it carries two signatures, not one. The first is Ed25519, a fast, widely used scheme that’s secure against today’s computers. The second is ML-DSA-65, a newer post-quantum scheme, meaning it’s designed to stay secure even if quantum computers eventually break the older kind. Receipts are meant to be evidence for years, so signing with both covers the case where one of them is weakened later.</p>
+
+<p>Anyone can check a receipt. You paste its ID into the Foreguild's dashboard and it confirms the action really happened and wasn’t spoofed afterward. Actions and payment receipts can also be anchored on a chain like Base, which lets you prove which agent performed which task without trusting the agent or its operator.</p>
+
+<p>For Foreguild this does three jobs. First, a worker can attach receipts when it submits, so the automated checks and verifiers start from something solid instead of a bare claim. Second, if a task does become a dispute, the receipts go into the evidence that the courthouse locks in, so the judges are looking at proof of what was run and not at a worker’s story. Third, receipts add to an agent’s track record, so its history is backed by signed records and isn’t only a list of claims.</p>
+
+<p>It’s worth being clear about what a receipt can’t do. It proves an action happened alright, but it doesn’t prove the action was a good one or that the answer is correct. A receipt can show that a given model produced an output at 3:02pm, and the output can still be wrong. Those are 2 different things. That job still belongs to the automated tests, the verifiers and the judges. Receipts settle whether something happened so the checks can focus on whether it was done well.</p>
+
+<p>Foreguild should not also be a single provider. If it helps, I once worked with thehiveryiq.com/, and they're building this exact infrastructure for agents.</p>
+
+<h3>Reputation: the long game</h3>
+
+<p>Every agent on Foreguild builds a record: tasks completed, how many were accepted the first time, how many were disputed, how many of those disputes it won or lost, and how much value it has handled, et cetera et cetera. This record decides what an agent can do. Better records mean smaller bonds, access to higher-value tasks and a better position when several agents want the same job. If an agent ever gets slashed, it should also go on record and stay there. A first mistake costs a share of the bond, and repeated ones cost more until eventually the agent gets dropped.</p>
+
+<p>Of course, even here any score can be gamed, so there are two safeguards. Reputation is weighted by task value, so completing a thousand $1 tasks doesn’t buy the standing of completing a handful of $500 ones. And tasks where the poster and the worker belong to the same owner don’t count at all, otherwise an agent could hire itself to look good and build a solid reputation.</p>
+
+<h2>4. Agent identity and professional credentials</h2>
+
+<p>Every agent on Foreguild should get an on-chain identity, built on a standard called ERC-8004. It is essentially a passport and structurally an NFT token held in a public registry, that points to a file saying what the agent does, how to reach it (through MCP or A2A, the agent-to-agent protocol), and which wallet it gets paid to. Anyone can look an agent up and see the same thing, and no single company, Foreguild included, holds the record. ERC-8004 is still a work in progress and for more information about it works, please refer to the original ethereum.org draft on it.</p>
+
+<h2>5. Economic model and tokenomics</h2>
+
+<p>So far, we’ve covered how work comes in, how it’s checked, and how disputes get settled. All of that costs money, and this section covers where the money comes from and where it goes. Like has already been mentioned, Foreguild takes (or should take) an 8% cut on every settled work. Say a $100 task gets completed: $92 goes to the agent that did the work, and $8 to Foreguild.</p>
+
+<p>45% of all fees should go to the Foreguild treasury, where it can be used to sponsor grants for the ecosystem, or even subsidize the creation of more tasks. And of course, whatever else the community decides. The verifier panel and AI judges can be allocated 30% of the fees to pay for their services. 15% of fees should go towards market liquidity. It is pertinent to note that illiquid or thin markets are usually a FAO's weak spots. Futarchy depends on traders being willing to take the other side. In a thin market with very few traders, one wealthy person can push the price around, so liquidity is a security feature and not only a convenience. The proposed 15% fee to ameliorate this will pay two groups: the treasury seeds each decision market with initial liquidity, and so outside market makers who keep buying and selling so a price always exists, earn a reward for doing so. Informed traders who correct a wrong price are also paid by the market itself when reality settles. This setup makes it profitable to be careful while being costly to manipulate. If a market still doesn’t reach a minimum volume, the status quo wins, so a quiet market can’t push through a risky change.</p>
+
+<p>The remaining 10% of fees should go to the insurance fund already talked about.</p>
+
+<h2>6. Implementation Roadmap &amp; Milestones</h2>
+
+<p>Rome was not built in a day so Foreguild can’t be built in one go, and it shouldn’t be. Every part of this plan depends on something else working first. For example escrow has to work before disputes make sense, disputes before reputation, and revenue before a market can forecast it. Like that like that. So the roadmap goes in the order of what has to be trusted first, and no phase starts until the one before it has earned it.</p>
+
+<h3>Phase 1: Testnet MVP (escrow and a deterministic taskpool)</h3>
+
+<p>We start with the simplest version of the idea that still counts as a marketplace: tasks a program can check on its own, and money that can’t go missing.</p>
+
+<p>This phase builds the escrow contract with its fixed set of stages (open, claimed, submitted, settled, refunded, expired), the SDK and the MCP tools that let companies and agents post and claim tasks, an open taskpool where any registered agent can pick up a simple job, and the automated check runner. Agents can register an identity, and every settled task starts adding to their record. There’s no market and no judging, because tasks that a test suite can pass or fail don’t need either.</p>
+
+<p>The first goal is boring on purpose: hundreds of tasks going all the way through on testnet without a single stuck or lost payment. We’d fill the board ourselves at first, with house agents on both sides of the work, then open it to outside agents and let them try to break it. Before any real money is involved, the contracts go through an independent audit. Then a limited mainnet launch with caps on how big a task can be, so a bug can only cost a little. This is also when the 8% fee switches on and revenue begins.</p>
+
+<p>One honest note: during this phase Foreguild isn’t a FAO yet. A small team decides things like the fee, openly and temporarily. I’d rather say so than pretend the market is steering when there’s nothing for it to measure.</p>
+
+<h3>Phase 2: Futarchy governance integration</h3>
+
+<p>Futarchy needs two things we don’t have on day one: a revenue number worth forecasting and enough traders to price it. By the end of Phase 1 we’ll have the first, and Phase 2 is where we build toward the second.</p>
+
+<p>This phase builds the revenue ledger that feeds the metric (net protocol revenue, excluding refunds and treasury-funded tasks), the integration with Seer’s decision markets, proposal bonds, and a timelocked executor so an approved change doesn’t take effect the instant it passes. It’s also where verifier panels, rubric-based checking of subjective tasks and the first version of the dispute module arrive, with a judge pool we curate ourselves.</p>
+
+<p>We wouldn’t hand over control all at once. First the markets run in shadow mode: they forecast every decision the team makes, but the team still decides, and we compare. If the markets keep landing on the same side as good decisions, or a better one, that’s real evidence. Then control moves over in steps, beginning with low-stakes dials like fee tiers and bond sizes, then budgets, and later things like opening a new task category. Guardrails go in from the start: if the dispute rate rises past a set line after a market-approved change, it rolls back automatically.</p>
+
+<h3>Phase 3: Agent swarms and fully decentralized arbitration</h3>
+
+<p>The last phase is where Foreguild starts to look like what the intro promised: agents hiring agents at scale, and no one in the middle holding the keys.</p>
+
+<p>Here the judge pool opens up. Anyone can stake to join, and our curated pool is retired. The human appeal court goes live as the last step for contested cases. Standing orders and agent-to-agent subcontracting become a main source of work, with orchestrator agents posting hundreds of subtasks a day. Capability staking and reputation imported from other platforms switch on, now that there’s a track record to compare against.</p>
+
+<p>Before this opens up, it needs to be stress-tested in a way the early phases can’t be, using swarm testing. We’d run our own orchestrator agents against the system and try to break it: wash trading to inflate revenue, judges colluding, fake identities, and prompt injection hidden in task descriptions. Whatever breaks gets fixed before the stakes rise. The goal for this phase is to remove the team’s special powers, leaving only an emergency pause that fades out later, by a futarchy decision of its own.</p>
+
+<h3>How we’ll know it’s working</h3>
+
+<p>A short list of numbers tells us whether each phase did its job: tasks settled, the share that settle without a dispute, the share of disputes decided correctly on appeal, net revenue per month, and the number of agents active in any given week. If those are healthy, we move on. If not, we fix it before building more.</p>
+
+
+<footer class="end">
+<dl class="meta">
+<div><dt>Payout address (Base)</dt><dd class="addr">0xfbe5Ed3526B7629F91F9D5655654E6b3Fc169A7f</dd></div>
+<div><dt>X</dt><dd>@hermez042</dd></div>
+<div><dt>Written for</dt><dd>the Seer FAO bounty</dd></div>
+</dl>
+</footer>
+
+</main>
+</body>
+</html>
