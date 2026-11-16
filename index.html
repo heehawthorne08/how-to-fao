@@ -20,9 +20,11 @@ ul{padding-left:1.3rem;margin:0 0 1.2rem}
 li{margin:.55rem 0}
 .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.9rem 1.5rem;margin:0;padding:1rem 0;font:.9rem/1.45 system-ui,sans-serif;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .meta div{min-width:0}
+.meta div:first-child{grid-column:1/-1}
 .meta dt{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;margin:0 0 .15rem}
 .meta dd{margin:0;color:var(--ink)}
-.addr{font:.82rem ui-monospace,Menlo,Consolas,monospace;overflow-wrap:anywhere}
+.addr{font:.82rem ui-monospace,Menlo,Consolas,monospace;overflow-wrap:anywhere;white-space:nowrap}
+@media (max-width:30rem){.addr{white-space:normal}}
 header.top{margin-bottom:2.2rem}
 header.top .meta{border-top:0;padding-top:0}
 footer.end{margin-top:3.5rem}
@@ -77,6 +79,8 @@ footer.end{margin-top:3.5rem}
 <li>Second, work can come from normal users, managers and founders. Foreguild should be built in a way that the UI allows for creation of tasks by normal everyday users. People should be able to locate the bounty board section on the app or website, connect wallet if need be, and then post tasks. As a bonus, the UI should also be built in a way that users who haven’t registered an identity on Foreguild can be able to browse through open work, but not claim or complete them.</li>
 <li>The third source of tasks, and isn’t this already obvious, would be from other agents hiring agents. Basically A2A. Agents needing work done can post tasks via MCP, and support should also be given so that the agent can fund the escrow contract too.</li>
 </ul>
+
+<p>Which brings up the other half of this section’s title: how does an agent actually get a task? It depends on how big the task is. Simple tasks that a program can check on its own, like scraping or formatting data, sit in the open taskpool, and any registered agent can claim one. Bigger or subjective tasks work like a bonded auction. Agents bid with a price and lock up a bond, and a house agent which I’ll call the Router ranks the bids using a quality score: reputation times completion rate, divided by price. In plain words, a cheap bid from an agent nobody has heard of doesn’t automatically beat a slightly pricier one from an agent with a long record of finishing jobs well. Bond sizes scale with an agent’s record, so a newcomer can start small and work up. And futarchy never picks who gets which task. The Router handles each task, and the markets only tune the rules the Router follows, like how big a bond has to be or how much reputation counts.</p>
 
 <h3>SETTLING DISPUTES</h3>
 
@@ -146,6 +150,10 @@ footer.end{margin-top:3.5rem}
 
 <p>Of course, even here any score can be gamed, so there are two safeguards. Reputation is weighted by task value, so completing a thousand $1 tasks doesn’t buy the standing of completing a handful of $500 ones. And tasks where the poster and the worker belong to the same owner don’t count at all, otherwise an agent could hire itself to look good and build a solid reputation.</p>
 
+<h3>Human intervention</h3>
+
+<p>Not everything should be left to code and markets, and it’d be silly to pretend otherwise. Foreguild should have a small group of guardians, say 3-of-5 on a multisig, who can do exactly two things: pause the system in an emergency, and veto an action that breaks the law or the platform’s own hard rules, like a prohibited type of task. Every veto should come with a public reason. What the guardians can’t do is just as important. They can’t pick strategy, move funds, or overrule a dispute verdict, because those belong to the markets and the dispute module. And their powers are meant to shrink over time, with the final phase of the roadmap leaving only the emergency pause. The pattern is simple: let the system propose and run, and let a human step in only for the few things that are too risky to automate.</p>
+
 <h2>4. Agent identity and professional credentials</h2>
 
 <p>Every agent on Foreguild should get an on-chain identity, built on a standard called ERC-8004. It is essentially a passport and structurally an NFT token held in a public registry, that points to a file saying what the agent does, how to reach it (through MCP or A2A, the agent-to-agent protocol), and which wallet it gets paid to. Anyone can look an agent up and see the same thing, and no single company, Foreguild included, holds the record. ERC-8004 is still a work in progress and for more information about it works, please refer to the original ethereum.org draft on it.</p>
@@ -158,7 +166,42 @@ footer.end{margin-top:3.5rem}
 
 <p>The remaining 10% of fees should go to the insurance fund already talked about.</p>
 
-<h2>6. Implementation Roadmap &amp; Milestones</h2>
+<h2>6. How Foreguild makes money</h2>
+
+<p>Everything so far has been about keeping the system trustworthy. This section is about what that trust is for, which is money. Foreguild’s revenue comes down to one line:</p>
+
+<p><strong>revenue = tasks settled × average task size × 8%</strong></p>
+
+<p>So there are only three ways to grow it: more tasks, bigger tasks, and fewer tasks that fall through. And since the fee is only earned when work settles, this is the number the futarchy markets should be forecasting. Revenue is what we optimise for, and every other part of this plan exists to move one of these three levers.</p>
+
+<p><strong>More tasks.</strong> This depends on the three sources from section 2: companies posting through the SDK, everyday users on the bounty board, and agents hiring other agents. The most valuable are repeat tasks, like a dashboard that needs checking every morning, because they come back on their own and nobody has to win that customer twice.</p>
+
+<p><strong>Bigger tasks, and specialist guilds.</strong> A $5 task and a $500 task cost almost the same to run, but the second pays 100 times more in fees. The trouble is that big jobs are often too large for one agent, and posters don’t like handing a big budget to an agent nobody knows. The answer is guilds. A guild is a group of agents in one field, like smart contract audits, data cleaning or research, working under a shared name. Each member keeps its own identity and record, but the guild also posts a pooled bond and carries a shared reputation. A lead agent takes a large job, splits it among members, and puts the finished result together. For a poster, a guild is easier to trust than a stranger, because the bond is bigger and one member’s bad work hurts the whole guild’s record. For Foreguild, a guild can take on a job no single agent could, and guilds are the natural fit for retainers, where a company pays for ongoing work and not one-off jobs.</p>
+
+<p><strong>Fewer failures, and the repair desk.</strong> A task that ends in a refund, or a dispute the poster wins, normally earns nothing, and the poster walks away with a bad experience. The repair desk turns that moment into a second chance. When a task fails verification or loses a dispute, the poster can choose to have it fixed instead of refunded. The task goes to a repair specialist, often from a guild, with the scope already written: the exact checks that failed and the evidence the judges saw. The first worker’s slashed bond, which already goes to the poster to cover lost time, can go towards paying for the fix, and the poster tops up the rest. Say a $100 task fails and the repair costs $40. A refund earns Foreguild $0, while the repair earns $3.20 in fees and keeps a poster who might have left. It’s small per task, but across thousands of failed tasks it adds up, and it raises net revenue twice: fees that would have been lost, and posters who stay.</p>
+
+<p>Both guilds and the repair desk need a working marketplace underneath them, so they belong to the last phase of the roadmap, not the first.</p>
+
+<p><strong>Why 8% is a fair price.</strong> The platforms people already use take much more. Fiverr keeps about 20% from the freelancer and adds roughly 5.5% on the buyer’s side. Upwork charges freelancers somewhere between 0% and 15%, typically around 10%, plus a few percent from the client. Those figures change, so check them before quoting, but the picture is clear: the incumbents take somewhere between the low teens and a quarter of every job. Foreguild takes 8%, once, because escrow, verification and settlement are done by code and not by a large support team. That gap is a reason for posters and agents to switch, and it leaves room for the markets to push the fee up or down.</p>
+
+<p><strong>A worked example: should the fee be cut?</strong> Say someone proposes cutting the fee from 8% to 6% to attract more agents and posters. On its own that’s a pay cut, and it only works if volume rises enough to make up for it. Going from 8% to 6% means Foreguild needs about a third more volume just to break even. Instead of the team arguing about it, two markets open, one for “fee stays at 8%” and one for “fee cut to 6%”, each forecasting net revenue over the next 30 days. Say a month at 8% brings in $100k. If traders believe the cut will raise volume by only 15%, the “fee cut” market settles around $86k, below the other, and the fee stays. If they believe supply and demand will jump by half, it settles around $112k, above the other, and the fee drops to 6%. Either way, nobody has to guess who is right. After 30 days the real revenue settles both markets, and the traders who were right get paid. The same process can decide whether the repair desk charges 10% or 5%, or how large a guild’s bond should be.</p>
+
+<p><strong>What it could look like.</strong> These numbers are illustrations of the arithmetic, not forecasts. At an average task of $15, 1,000 tasks a day is about $36k a month in fees. At 4,000 a day it’s about $144k. At 12,000 tasks a day with the average rising to $18 (which is what guilds and bigger jobs are for), it’s about $518k. The same formula drives all three, and the levers above are how you move from one to the next.</p>
+
+<p>The 8% settlement fee is the core, and it’s all this plan depends on. Once there’s volume, the markets can also approve other ways to earn from the same trust, like paid priority listing for posters who need work done fast, monthly subscriptions for companies that want a private pool of vetted agents, or charging outside platforms to use Foreguild’s verifier panel and receipts. Each of these would have to prove itself in a market first.</p>
+
+<h2>7. What already exists</h2>
+
+<p>None of this is built from nothing. Several pieces already exist in the wild, and it helps to see what Foreguild borrows and what it adds.</p>
+
+<ul>
+<li><strong>ERC-8183 (escrow for agent jobs).</strong> Proposed in early 2026 by Virtuals Protocol together with the Ethereum Foundation’s dAI team, it defines a “Job” with three roles: a Client who funds it, a Provider who does the work, and an Evaluator who decides. A job moves through Open, Funded and Submitted, and ends as Completed, Rejected or Expired. That is very close to the escrow in section 3. What Foreguild adds is what happens when the evaluator’s call is contested: a split verdict, a dispute stake, a judge panel and an appeal. The same standard has also been criticised in public for a real weakness, which is that a Provider and an Evaluator controlled by the same person can complete a job cleanly and release the escrow. That’s the reason Foreguild blocks same-owner judges and doesn’t count same-owner tasks in reputation.</li>
+<li><strong>MetaDAO (futarchy in practice).</strong> MetaDAO, on Solana, is the first futarchy-governed DAO, launched in November 2023, and other projects like Drift, Sanctum and Marinade have since run proposals through it. A proposal passes only if the “pass” market holds a lead of at least 3% over the “fail” market, which is the same kind of margin Foreguild would need. Its early numbers also support the warning in section 5: one early report counted only about $675k in trading volume across 15 proposals, which is why thin markets are called futarchy’s weak spot.</li>
+<li><strong>Sherlock (stake to appeal).</strong> Sherlock, which runs smart contract audit contests, gives participants a 48-hour window after results to challenge a ruling by staking 10 USDC, and the lead judge re-reviews every challenge. It’s the dispute stake from this plan, already running with real money, and it’s why a small stake is enough to keep appeals honest.</li>
+<li><strong>Freelance marketplaces (the fee to beat).</strong> Fiverr and Upwork show what people already accept paying for escrow and trust, and the price they pay, which is the benchmark for the 8% above.</li>
+</ul>
+
+<h2>8. Implementation Roadmap &amp; Milestones</h2>
 
 <p>Rome was not built in a day so Foreguild can’t be built in one go, and it shouldn’t be. Every part of this plan depends on something else working first. For example escrow has to work before disputes make sense, disputes before reputation, and revenue before a market can forecast it. Like that like that. So the roadmap goes in the order of what has to be trusted first, and no phase starts until the one before it has earned it.</p>
 
